@@ -40,3 +40,14 @@ ace使用requirejs模块机制，免编译即可运行，比如直接用apache�
 
 	ace.require("./autocomplete").Autocomplete.startCommand.bindKey = "Ctrl-Space|Ctrl-Shift-Space|Alt-/"
 
+### javascript默认使用最新es10
+
+2022/03/20
+
+JS中使用async/await会报警说要用`esversion: 8`：
+
+	async function f() {}
+
+代码前加注释`/* jslint esnext: false, esversion: 8 */` 可以解决。
+此处还是更新为es10兼容性更好。
+
