@@ -51,3 +51,16 @@ JS中使用async/await会报警说要用`esversion: 8`：
 代码前加注释`/* jslint esnext: false, esversion: 8 */` 可以解决。
 此处还是更新为es10兼容性更好。
 
+### javascript语法逻辑修改：对象配置
+
+在jdcloud中很多配置用到直接的对象语法：
+
+	{
+		require: true,
+		valueForAdd: () => g_data.userInfo.id
+	}
+
+这会被当成语法错误。从源码来看，在jshint处理中，把它当成了json来对待，所以不符合json语法而报错。
+
+修改后当作nud对待即可解决。
+
